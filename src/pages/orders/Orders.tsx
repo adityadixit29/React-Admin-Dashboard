@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { 
   FaShoppingCart, 
   FaCheckCircle, 
@@ -12,9 +12,6 @@ import {
   FaTh,
   FaExclamationTriangle,
   FaTruck,
-  FaBoxOpen,
-  FaUser,
-  FaCalendarAlt,
   FaMapMarkerAlt
 } from 'react-icons/fa';
 import "./orders.scss";

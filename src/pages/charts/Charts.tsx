@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { useState } from 'react';
 import {
   LineChart,
   Line,
@@ -29,9 +29,7 @@ import {
   FaChartBar,
   FaChartPie,
   FaChartArea,
-  FaFilter,
   FaDownload,
-  FaCalendarAlt,
   FaDollarSign,
   FaUsers,
   FaShoppingCart,
@@ -48,7 +46,7 @@ import "./charts.scss";
 const Charts = () => {
   const [selectedChart, setSelectedChart] = useState('line');
   const [timeRange, setTimeRange] = useState('6M');
-  const [viewMode, setViewMode] = useState('grid');
+  const [viewMode] = useState('grid');
 
   // Mock data for different chart types
   const salesData = [
@@ -75,15 +73,6 @@ const Charts = () => {
     { name: 'Beauty', value: 80, color: '#ff00ff' }
   ];
 
-  const userActivityData = [
-    { time: '00:00', active: 120, inactive: 80 },
-    { time: '04:00', active: 90, inactive: 110 },
-    { time: '08:00', active: 200, inactive: 50 },
-    { time: '12:00', active: 300, inactive: 30 },
-    { time: '16:00', active: 280, inactive: 40 },
-    { time: '20:00', active: 250, inactive: 60 },
-    { time: '24:00', active: 150, inactive: 90 }
-  ];
 
   const performanceData = [
     { subject: 'Speed', A: 120, B: 110, fullMark: 150 },

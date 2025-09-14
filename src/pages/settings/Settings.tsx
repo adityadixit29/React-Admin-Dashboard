@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { 
   FaUser, 
   FaBell, 
@@ -12,22 +12,16 @@ import {
   FaMoon,
   FaSun,
   FaDesktop,
-  FaLanguage,
-  FaClock,
   FaEnvelope,
   FaPhone,
-  FaMapMarkerAlt,
   FaKey,
   FaDatabase,
   FaDownload,
   FaUpload,
   FaTrash,
-  FaCheck,
   FaTimes,
   FaEdit,
-  FaPlus,
-  FaSearch,
-  FaFilter
+  FaPlus
 } from 'react-icons/fa';
 import "./settings.scss";
 

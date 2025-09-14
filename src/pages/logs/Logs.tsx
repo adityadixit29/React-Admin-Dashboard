@@ -1,17 +1,12 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import {
   FaSearch,
-  FaFilter,
   FaDownload,
   FaTrash,
-  FaEye,
-  FaEyeSlash,
   FaPlay,
   FaPause,
-  FaStop,
   FaExclamationTriangle,
   FaInfoCircle,
-  FaCheckCircle,
   FaTimesCircle,
   FaBug,
   FaServer,
@@ -19,17 +14,11 @@ import {
   FaDatabase,
   FaGlobe,
   FaClock,
-  FaCalendarAlt,
-  FaCode,
   FaTerminal,
   FaFileAlt,
-  FaCog,
-  FaExpand,
-  FaCompress,
   FaChevronDown,
   FaChevronUp,
-  FaCopy,
-  FaExternalLinkAlt
+  FaCopy
 } from 'react-icons/fa';
 import "./logs.scss";
 

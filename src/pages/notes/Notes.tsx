@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { 
   FaStickyNote, 
   FaCheckCircle, 
-  FaClock, 
   FaSearch, 
   FaEdit, 
   FaTrash, 
@@ -10,14 +9,11 @@ import {
   FaTable,
   FaTh,
   FaExclamationTriangle,
-  FaUser,
-  FaCalendarAlt,
   FaTag,
   FaStar,
   FaLock,
   FaGlobe,
   FaUsers,
-  FaBookmark,
   FaArchive,
   FaFolder
 } from 'react-icons/fa';
@@ -243,7 +239,7 @@ const Notes = () => {
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [priorityFilter, setPriorityFilter] = useState('all');
   const [visibilityFilter, setVisibilityFilter] = useState('all');
-  const [folderFilter, setFolderFilter] = useState('all');
+  const [folderFilter] = useState('all');
   const [viewMode, setViewMode] = useState('table');
 
   // Filter notes based on search and filters

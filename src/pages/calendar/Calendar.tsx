@@ -1,6 +1,6 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import Calendar from 'react-calendar';
-import { format, isSameDay, isToday, startOfDay, endOfDay } from 'date-fns';
+import { format, isSameDay } from 'date-fns';
 import { 
   FaCalendarAlt, 
   FaPlus, 
@@ -12,15 +12,10 @@ import {
   FaUser,
   FaUsers,
   FaVideo,
-  FaPhone,
   FaExclamationTriangle,
   FaCheckCircle,
   FaTimes,
-  FaFilter,
-  FaList,
-  FaTh,
-  FaChevronLeft,
-  FaChevronRight
+  FaList
 } from 'react-icons/fa';
 import 'react-calendar/dist/Calendar.css';
 import "./calendar.scss";
@@ -198,7 +193,7 @@ const mockEvents = [
 ];
 
 const CalendarPage = () => {
-  const [events, setEvents] = useState(mockEvents);
+  const [events] = useState(mockEvents);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [showEventModal, setShowEventModal] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -220,17 +215,17 @@ const CalendarPage = () => {
     });
   }, [events, searchTerm, typeFilter, priorityFilter]);
 
-  const getEventsForDate = (date) => {
+  const getEventsForDate = (date: Date) => {
     return filteredEvents.filter(event => 
       isSameDay(new Date(event.start), date)
     );
   };
 
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
+  const handleDateChange = (value: any) => {
+    setSelectedDate(value);
   };
 
-  const handleEventClick = (event) => {
+  const handleEventClick = (event: any) => {
     setSelectedEvent(event);
     setShowEventModal(true);
   };
@@ -250,11 +245,11 @@ const CalendarPage = () => {
       organizer: 'Current User',
       color: '#3b82f6'
     };
-    setSelectedEvent(newEvent);
+    setSelectedEvent(newEvent as any);
     setShowEventModal(true);
   };
 
-  const getTypeIcon = (type) => {
+  const getTypeIcon = (type: string) => {
     switch (type) {
       case 'meeting': return <FaUsers />;
       case 'presentation': return <FaVideo />;
@@ -268,7 +263,7 @@ const CalendarPage = () => {
     }
   };
 
-  const getPriorityColor = (priority) => {
+  const getPriorityColor = (priority: string) => {
     switch (priority) {
       case 'high': return '#ef4444';
       case 'medium': return '#f59e0b';
@@ -277,11 +272,11 @@ const CalendarPage = () => {
     }
   };
 
-  const formatDate = (date) => {
+  const formatDate = (date: Date) => {
     return format(new Date(date), 'MMM dd, yyyy');
   };
 
-  const formatTime = (date) => {
+  const formatTime = (date: Date) => {
     return format(new Date(date), 'h:mm a');
   };
 
@@ -427,7 +422,7 @@ const CalendarPage = () => {
               onChange={handleDateChange}
               value={selectedDate}
               className="custom-calendar"
-              tileContent={({ date, view }) => {
+              tileContent={({ date }) => {
                 const dayEvents = getEventsForDate(date);
                 return (
                   <div className="calendar-tile-content">
@@ -547,7 +542,7 @@ const CalendarPage = () => {
         <div className="event-modal-overlay" onClick={() => setShowEventModal(false)}>
           <div className="event-modal" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
-              <h2>{selectedEvent.title}</h2>
+              <h2>{(selectedEvent as any).title}</h2>
               <button className="close-btn" onClick={() => setShowEventModal(false)}>
                 <FaTimes />
               </button>
@@ -557,41 +552,41 @@ const CalendarPage = () => {
               <div className="event-info">
                 <div className="info-row">
                   <span className="label">Description:</span>
-                  <span className="value">{selectedEvent.description}</span>
+                  <span className="value">{(selectedEvent as any).description}</span>
                 </div>
                 <div className="info-row">
                   <span className="label">Date & Time:</span>
-                  <span className="value">{formatDate(selectedEvent.start)} at {formatTime(selectedEvent.start)}</span>
+                  <span className="value">{formatDate((selectedEvent as any).start)} at {formatTime((selectedEvent as any).start)}</span>
                 </div>
                 <div className="info-row">
                   <span className="label">Duration:</span>
-                  <span className="value">{moment(selectedEvent.end).diff(moment(selectedEvent.start), 'minutes')} minutes</span>
+                  <span className="value">{Math.round((new Date((selectedEvent as any).end).getTime() - new Date((selectedEvent as any).start).getTime()) / (1000 * 60))} minutes</span>
                 </div>
                 <div className="info-row">
                   <span className="label">Location:</span>
-                  <span className="value">{selectedEvent.location}</span>
+                  <span className="value">{(selectedEvent as any).location}</span>
                 </div>
                 <div className="info-row">
                   <span className="label">Organizer:</span>
-                  <span className="value">{selectedEvent.organizer}</span>
+                  <span className="value">{(selectedEvent as any).organizer}</span>
                 </div>
                 <div className="info-row">
                   <span className="label">Type:</span>
-                  <span className="value">{selectedEvent.type}</span>
+                  <span className="value">{(selectedEvent as any).type}</span>
                 </div>
                 <div className="info-row">
                   <span className="label">Priority:</span>
                   <span 
                     className="priority-badge"
-                    style={{ backgroundColor: getPriorityColor(selectedEvent.priority) }}
+                    style={{ backgroundColor: getPriorityColor((selectedEvent as any).priority) }}
                   >
-                    {selectedEvent.priority}
+                    {(selectedEvent as any).priority}
                   </span>
                 </div>
                 <div className="info-row">
                   <span className="label">Attendees:</span>
                   <div className="attendees-list">
-                    {selectedEvent.attendees.map((attendee, index) => (
+                    {(selectedEvent as any).attendees.map((attendee: string, index: number) => (
                       <span key={index} className="attendee">{attendee}</span>
                     ))}
                   </div>

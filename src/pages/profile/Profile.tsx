@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   FaUser,
   FaEdit,
@@ -9,43 +9,20 @@ import {
   FaPhone,
   FaMapMarkerAlt,
   FaCalendarAlt,
-  FaBriefcase,
-  FaGraduationCap,
   FaGlobe,
   FaLinkedin,
   FaTwitter,
   FaGithub,
-  FaLock,
   FaKey,
   FaShieldAlt,
-  FaBell,
   FaCog,
-  FaDownload,
-  FaUpload,
-  FaTrash,
-  FaPlus,
-  FaMinus,
-  FaCheck,
-  FaExclamationTriangle,
-  FaInfoCircle,
-  FaHeart,
   FaComment,
   FaShare,
-  FaThumbsUp,
-  FaEye,
   FaChartLine,
   FaTrophy,
   FaAward,
-  FaStar,
-  FaBookmark,
-  FaHistory,
-  FaClock,
   FaUsers,
-  FaProjectDiagram,
-  FaCode,
-  FaDatabase,
-  FaServer,
-  FaCloud
+  FaProjectDiagram
 } from 'react-icons/fa';
 import "./profile.scss";
 
@@ -71,7 +48,8 @@ const Profile = () => {
     socialLinks: {
       linkedin: 'https://www.linkedin.com/in/aditya-dixit-499798225',
       twitter: 'https://x.com/AdityaDixit2911',
-      github: 'https://github.com/adityadixit29'
+      github: 'https://github.com/adityadixit29',
+      website: 'https://adityadixit.dev'
     },
     stats: {
       projects: 24,

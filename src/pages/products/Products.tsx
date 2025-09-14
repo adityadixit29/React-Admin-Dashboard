@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { 
   FaBox, 
   FaCheckCircle, 
-  FaShoppingCart, 
   FaDollarSign, 
   FaSearch, 
   FaEdit, 
@@ -12,8 +11,7 @@ import {
   FaTh,
   FaExclamationTriangle,
   FaTag,
-  FaWarehouse,
-  FaChartLine
+  FaWarehouse
 } from 'react-icons/fa';
 import "./products.scss";
 
